@@ -1,0 +1,26 @@
+{
+  "pokemon": [
+    {
+      "id": "bulbasaur",
+      "name": "Bulbasaur",
+      "type": "Grass",
+      "type2": "Poison",
+      "attack": "Razor Leaf",
+      "level": 5
+    },
+    {
+      "id": "squirtle",
+      "name": "Squirtle",
+      "type": "Water",
+      "attack": "Water gun",
+      "level": 6
+    },
+    {
+      "id": "charmander",
+      "name": "Charmander",
+      "type": "Fire",
+      "attack": "Ember",
+      "level": 5
+    }
+  ]
+}
