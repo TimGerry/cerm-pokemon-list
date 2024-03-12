@@ -1,7 +1,6 @@
-import e from 'express';
 import { PokemonTypePipe } from './pokemon-type.pipe';
 
-fdescribe('PokemonTypePipe', () => {
+describe('PokemonTypePipe', () => {
   let sut: PokemonTypePipe;
 
   beforeEach(() => {
