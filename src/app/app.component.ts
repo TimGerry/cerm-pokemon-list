@@ -5,11 +5,12 @@ import { FormsModule } from '@angular/forms';
 import { PokemonCenterComponent } from './pokemon-center/pokemon-center.component';
 import { PokemonMainComponent } from './pokemon-main/pokemon-main.component';
 import { APP_TITLE } from './app.config';
+import { AppMenuComponent } from './app-menu/app-menu.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, PokemonTypePipe, FormsModule, PokemonCenterComponent, PokemonMainComponent],
+  imports: [RouterOutlet, AppMenuComponent, PokemonTypePipe, FormsModule, PokemonCenterComponent, PokemonMainComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

@@ -1,0 +1,11 @@
+@if(pokemon) {
+  <h2>About {{pokemon.name }}</h2>
+  <p>Type: {{ pokemon.type }} {{ pokemon.type2 }}</p>
+  <p>Attack: {{ pokemon.attack }}</p>
+  <p>Level: {{ pokemon.level }}</p>
+  <img [src]="getPokemonImage(pokemon.name)" [alt]="pokemon.name">
+} 
+
+@else {
+  <app-loading>Loading...</app-loading>
+}
