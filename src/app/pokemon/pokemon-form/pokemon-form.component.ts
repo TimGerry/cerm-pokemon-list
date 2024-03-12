@@ -8,10 +8,9 @@ import { Pokemon } from '../models/pokemon.model';
   styleUrl: './pokemon-form.component.scss'
 })
 export class PokemonFormComponent {
-  @Output() pokemonSubmitted = new EventEmitter<Pokemon>();
+  @Output() pokemonSubmitted = new EventEmitter<Omit<Pokemon, 'id'>>();
 
-  pokemonForm: Pokemon = {
-    id: '',
+  pokemonForm: Omit<Pokemon, 'id'> = {
     name: '',
     type: '',
     type2: '',
@@ -20,7 +19,7 @@ export class PokemonFormComponent {
   }
 
   submit(form: NgForm) {
-    this.pokemonSubmitted.emit({ ...this.pokemonForm, id: this.pokemonForm.name });
+    this.pokemonSubmitted.emit({ ...this.pokemonForm, level: 5});
     form.reset();
   }
 }

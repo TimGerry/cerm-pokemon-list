@@ -17,7 +17,7 @@ export class PokemonMainComponent implements OnInit {
     this.updateData();
   }
 
-  submit(pokemonToAdd: Pokemon) {
+  submit(pokemonToAdd: Omit<Pokemon, 'id'>) {
     this.service.add(pokemonToAdd).subscribe(() => this.updateData());
   }
 
