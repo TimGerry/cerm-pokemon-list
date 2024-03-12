@@ -21,6 +21,30 @@
       "type": "Fire",
       "attack": "Ember",
       "level": 5
+    },
+    {
+      "id": "charizard",
+      "name": "charizard",
+      "type": "fire",
+      "type2": "flying",
+      "attack": "flamethrower",
+      "level": 36
+    },
+    {
+      "id": "charmeleon",
+      "name": "charmeleon",
+      "type": "fire",
+      "type2": "",
+      "attack": "ember",
+      "level": 16
+    },
+    {
+      "id": "mudkip",
+      "name": "mudkip",
+      "type": "water",
+      "type2": "",
+      "attack": "water gun",
+      "level": 5
     }
   ]
 }

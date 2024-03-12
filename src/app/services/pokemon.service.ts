@@ -1,23 +1,23 @@
 import { Injectable } from '@angular/core';
 import { Pokemon } from '../models/pokemon.model';
+import { HttpClient } from '@angular/common/http';
+import { Observable, map } from 'rxjs';
+
+const BASE_URL = 'http://localhost:3000/pokemon/';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PokemonService {
-  pokemonList: Pokemon[] = [
-    { id: 'bulbasaur', name: 'bulbasaur', type: 'grass', type2: 'poison', attack: 'razor leaf', level: 5 },
-    { id: 'bulbasaur', name: 'squirtle', type: 'water', attack: 'water gun', level: 6 },
-    { id: 'bulbasaur', name: 'charmander', type: 'fire', attack: 'ember', level: 5 }
-  ];
+  constructor(private http: HttpClient) { }
 
-  constructor() { }
-
-  getAll() {
-    return this.pokemonList;
+  getAll(): Observable<Pokemon[]> {
+    return this.http.get<Pokemon[]>(BASE_URL).pipe(
+      map(data => data.map(p => ({ ...p, type: p.type.toLowerCase(), type2: p.type2?.toLowerCase() })))
+    );
   }
 
-  add(pokemon: Pokemon) {
-    this.pokemonList.push(pokemon);
+  add(pokemon: Pokemon): Observable<void> {
+    return this.http.post<void>(BASE_URL, pokemon);
   }
 }

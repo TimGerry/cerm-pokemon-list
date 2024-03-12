@@ -10,9 +10,9 @@
     </tr>
   </thead>
   <tbody>
-    @for (pokemon of pokemonList; track pokemon) {
+    @for (pokemon of pokemon$ | async; track pokemon) {
     <tr (click)="attack(pokemon)">
-      <td [class.fire]="pokemon.type === 'fire'">{{pokemon.name}}</td>
+      <td [class.fire]="pokemon.type.toLowerCase() === 'fire'">{{pokemon.name}}</td>
       <td>{{pokemon.type}}</td>
       <td>{{pokemon.type2 | pokemonType: '-'}}</td>
       <td>{{pokemon.attack}}</td>

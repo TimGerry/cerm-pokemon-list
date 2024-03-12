@@ -1,6 +1,6 @@
 <h2>My Pokémon team</h2>
-@if(pokemonList) {
-<app-pokemon-list [pokemonList]="pokemonList"></app-pokemon-list>
+@if(pokemon$) {
+<app-pokemon-list [pokemon$]="pokemon$"></app-pokemon-list>
 }
 @else {
 <app-loading>
