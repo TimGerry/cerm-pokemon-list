@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Pokemon } from '../models/pokemon.model';
+import { Pokemon } from '../pokemon/models/pokemon.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 

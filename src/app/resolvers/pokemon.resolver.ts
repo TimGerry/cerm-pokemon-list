@@ -1,5 +1,5 @@
 import { ResolveFn } from '@angular/router';
-import { Pokemon } from '../models/pokemon.model';
+import { Pokemon } from '../pokemon/models/pokemon.model';
 import { PokemonService } from '../services/pokemon.service';
 import { inject } from '@angular/core';
 

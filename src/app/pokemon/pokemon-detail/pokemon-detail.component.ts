@@ -1,13 +1,9 @@
-import { Component, Input } from '@angular/core';
-import { PokemonService } from '../services/pokemon.service';
+import { Component } from '@angular/core';
 import { Pokemon } from '../models/pokemon.model';
-import { LoadingComponent } from '../loading/loading.component';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-pokemon-detail',
-  standalone: true,
-  imports: [LoadingComponent],
   templateUrl: './pokemon-detail.component.html',
   styleUrl: './pokemon-detail.component.scss'
 })

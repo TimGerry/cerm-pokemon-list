@@ -1,14 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { Pokemon } from '../models/pokemon.model';
-import { PokemonTypePipe } from '../pipes/pokemon-type.pipe';
 import { Observable } from 'rxjs';
-import { AsyncPipe } from '@angular/common';
-import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-pokemon-list',
-  standalone: true,
-  imports: [PokemonTypePipe, AsyncPipe, RouterModule],
   templateUrl: './pokemon-list.component.html',
   styleUrl: './pokemon-list.component.scss'
 })

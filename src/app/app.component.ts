@@ -1,16 +1,13 @@
 import { Component, Inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { PokemonTypePipe } from './pipes/pokemon-type.pipe';
-import { FormsModule } from '@angular/forms';
-import { PokemonCenterComponent } from './pokemon-center/pokemon-center.component';
-import { PokemonMainComponent } from './pokemon-main/pokemon-main.component';
 import { APP_TITLE } from './app.config';
 import { AppMenuComponent } from './app-menu/app-menu.component';
+import { PokemonModule } from './pokemon/pokemon.module';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, AppMenuComponent, PokemonTypePipe, FormsModule, PokemonCenterComponent, PokemonMainComponent],
+  imports: [RouterOutlet, AppMenuComponent, PokemonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

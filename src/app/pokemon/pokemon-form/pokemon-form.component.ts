@@ -1,11 +1,9 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 import { Pokemon } from '../models/pokemon.model';
 
 @Component({
   selector: 'app-pokemon-form',
-  standalone: true,
-  imports: [FormsModule],
   templateUrl: './pokemon-form.component.html',
   styleUrl: './pokemon-form.component.scss'
 })

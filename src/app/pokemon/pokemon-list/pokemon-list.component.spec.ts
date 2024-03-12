@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PokemonListComponent } from './pokemon-list.component';
-import { PokemonService } from '../services/pokemon.service';
+import { PokemonService } from '../../services/pokemon.service';
 
 fdescribe('PokemonListComponent', () => {
   let component: PokemonListComponent;

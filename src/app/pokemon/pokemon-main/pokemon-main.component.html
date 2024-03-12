@@ -9,4 +9,4 @@
 }
 
 <h2>Add new Pokémon</h2>
-<app-pokemon-form (pokemonSubmitted)="submit($event)"></app-pokemon-form>
+<app-pokemon-form (pokemonSubmitted)="submit($any($event))"></app-pokemon-form>
