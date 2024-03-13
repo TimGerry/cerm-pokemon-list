@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { AbstractControl, AsyncValidatorFn, Form, FormControl, FormGroup, NonNullableFormBuilder, ValidatorFn, Validators } from '@angular/forms';
+import { AbstractControl, AsyncValidatorFn, FormControl, FormGroup, NonNullableFormBuilder, ValidatorFn, Validators } from '@angular/forms';
 import { POKEMON_TYPES, Pokemon } from '../models/pokemon.model';
 import { catchError, map, of } from 'rxjs';
 import { ajax } from 'rxjs/ajax';
