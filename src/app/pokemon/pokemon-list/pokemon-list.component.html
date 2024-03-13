@@ -12,11 +12,11 @@
   <tbody>
     @for (pokemon of pokemon$ | async; track pokemon) {
     <tr [routerLink]="pokemon.id">
-      <td [class.fire]="pokemon.type.toLowerCase() === 'fire'">{{pokemon.name}}</td>
-      <td>{{pokemon.type}}</td>
+      <td style="background-color: azure;" appHover="green">{{pokemon.name}}</td>
+      <td [class.fire]="pokemon.type.toLowerCase() === 'fire'">{{pokemon.type}}</td>
       <td>{{pokemon.type2 | pokemonType: '-'}}</td>
       <td>{{pokemon.attack}}</td>
-      <td>{{pokemon.level}}</td>
+      <td>{{pokemon.level}} <p *appOr="[pokemon.level < 1, pokemon.level > 100]" class="text-danger">ILLEGAL LEVEL</p></td>
       <td><img [src]="getPokemonImage(pokemon.name)" class="miniature" alt="pokemon.name"></td>
     </tr>
     }

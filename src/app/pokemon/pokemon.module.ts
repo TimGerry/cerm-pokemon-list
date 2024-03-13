@@ -9,13 +9,15 @@ import { LoadingComponent } from '../loading/loading.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PokemonService } from '../services/pokemon.service';
+import { HoverDirective } from '../directives/hover.directive';
+import { OrDirective } from '../directives/or.directive';
 
 
 
 @NgModule({
   declarations: [PokemonListComponent, PokemonFormComponent, PokemonMainComponent, PokemonDetailComponent, PokemonTypePipe],
   imports: [
-    CommonModule, LoadingComponent, AsyncPipe, RouterModule, ReactiveFormsModule
+    CommonModule, LoadingComponent, AsyncPipe, RouterModule, ReactiveFormsModule, HoverDirective, OrDirective
   ],
   providers: [PokemonService]
 })
