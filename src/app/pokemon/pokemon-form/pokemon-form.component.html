@@ -1,44 +1,56 @@
-<form #myForm="ngForm" novalidate (ngSubmit)="submit(myForm)">
+<form [formGroup]="pokemonForm" novalidate (ngSubmit)="submit()">
   <div>
     <label for="nameInput">Name:</label>
-    <input type="text" name="name" id="nameInput" [(ngModel)]="pokemonForm.name" #nameFormInput="ngModel" required
-      minlength="2">
-    @if(nameFormInput.dirty && nameFormInput.hasError('required')) {
+    <input type="text" id="nameInput" formControlName="name">
+    @if(pokemonForm.controls['name'].dirty && pokemonForm.controls['name'].hasError('required')) {
     <p class="text-danger">Name is required!</p>
     }
-    @if(nameFormInput.dirty && nameFormInput.hasError('minlength')) {
+    @if(pokemonForm.controls['name'].dirty && pokemonForm.controls['name'].hasError('minlength')) {
     <p class="text-danger">Name must be 2 characters or more!</p>
     }
+    @if(pokemonForm.controls['name'].dirty && pokemonForm.controls['name'].hasError('invalidPokemon')) {
+      <p class="text-danger">Invalid Pokémon name!</p>
+      }
   </div>
   <div>
     <label for="typeInput">Type:</label>
-    <input type="text" name="type" id="typeInput" [(ngModel)]="pokemonForm.type" #typeFormInput="ngModel" required>
-    @if(typeFormInput.dirty && typeFormInput.hasError('required')) {
+    <input type="text" id="typeInput" formControlName="type">
+    @if(pokemonForm.controls['type'].dirty && pokemonForm.controls['type'].hasError('required')) {
     <p class="text-danger">Type is required!</p>
+    }
+    @if(pokemonForm.controls['type'].dirty && pokemonForm.controls['type'].hasError('invalidType')) {
+    <p class="text-danger">Invalid type!</p>
     }
   </div>
   <div>
     <label for="type2Input">Type2:</label>
-    <input type="text" name="type2" id="type2Input" [(ngModel)]="pokemonForm.type2">
+    <input type="text" id="type2Input" formControlName="type2">
+    @if(pokemonForm.controls['type2']?.dirty && pokemonForm.controls['type2']?.hasError('invalidType')) {
+      <p class="text-danger">Invalid type!</p>
+      }
+  </div>
+  <div>
+    @if(pokemonForm.dirty && pokemonForm.hasError('duplicateType')) {
+      <p class="text-danger">Duplicate types are not allowed!</p>
+    }
   </div>
   <div>
     <label for="attackInput">Attack:</label>
-    <input type="text" name="attack" id="attackInput" [(ngModel)]="pokemonForm.attack" #attackFormInput="ngModel"
-      required>
-    @if(attackFormInput.dirty && attackFormInput.hasError('required')) {
+    <input type="text" id="attackInput" formControlName="attack">
+    @if(pokemonForm.controls['attack'].dirty && pokemonForm.controls['attack'].hasError('required')) {
     <p class="text-danger">Attack is required!</p>
     }
   </div>
   <div>
     <label for="levelInput">Level:</label>
-    <input type="number" name="level" id="levelInput" [(ngModel)]="pokemonForm.level" #levelFormInput="ngModel" required
-      min="1" max="100">
-    @if(levelFormInput.dirty && levelFormInput.hasError('required')) {
+    <input type="number" id="levelInput" formControlName="level">
+    @if(pokemonForm.controls['level'].dirty && pokemonForm.controls['level'].hasError('required')) {
     <p class="text-danger">Level is required!</p>
     }
-    @if(levelFormInput.dirty && (levelFormInput.hasError('min') || levelFormInput.hasError('max'))) {
+    @if(pokemonForm.controls['level'].dirty && (pokemonForm.controls['level'].hasError('min') ||
+    pokemonForm.controls['level'].hasError('max'))) {
     <p class="text-danger">Level must be between 1 and 100!</p>
     }
   </div>
-  <button type="submit" [disabled]="myForm.invalid">Submit!</button>
+  <button type="submit" [disabled]="!pokemonForm.valid">Submit!</button>
 </form>

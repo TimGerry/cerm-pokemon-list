@@ -7,7 +7,7 @@ import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.componen
 import { PokemonTypePipe } from './pipes/pokemon-type.pipe';
 import { LoadingComponent } from '../loading/loading.component';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PokemonService } from '../services/pokemon.service';
 
 
@@ -15,7 +15,7 @@ import { PokemonService } from '../services/pokemon.service';
 @NgModule({
   declarations: [PokemonListComponent, PokemonFormComponent, PokemonMainComponent, PokemonDetailComponent, PokemonTypePipe],
   imports: [
-    CommonModule, LoadingComponent, AsyncPipe, RouterModule, FormsModule
+    CommonModule, LoadingComponent, AsyncPipe, RouterModule, ReactiveFormsModule
   ],
   providers: [PokemonService]
 })

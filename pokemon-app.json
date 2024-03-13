@@ -21,6 +21,46 @@
       "type": "Fire",
       "attack": "Ember",
       "level": 5
+    },
+    {
+      "name": "mudkip",
+      "type": "water",
+      "type2": "",
+      "attack": "water gun",
+      "level": 5,
+      "id": "mudkip"
+    },
+    {
+      "name": "marshtomp",
+      "type": "water",
+      "type2": "ground",
+      "attack": "mud slap",
+      "level": 5,
+      "id": "marshtomp"
+    },
+    {
+      "name": "swampert",
+      "type": "water",
+      "type2": "ground",
+      "attack": "earthquake",
+      "level": 5,
+      "id": "swampert"
+    },
+    {
+      "name": "charizard",
+      "type": "fire",
+      "type2": "flying",
+      "attack": "flamethrower",
+      "level": 5,
+      "id": "charizard"
+    },
+    {
+      "name": "deoxys-attack",
+      "type": "psychic",
+      "type2": "",
+      "attack": "confusion",
+      "level": 5,
+      "id": "deoxys-attack"
     }
   ]
 }
