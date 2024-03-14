@@ -1,4 +1,8 @@
 <h1>{{ title }}</h1>
 
+<button [routerLink]="[{ outlets: { extra: 'shopping-cart' }}]">Open shopping cart</button>
+<button [routerLink]="[{ outlets: { extra: []}}]">Close shopping cart</button>
+
+<router-outlet name="extra"></router-outlet>
 <app-app-menu></app-app-menu>
 <router-outlet></router-outlet>

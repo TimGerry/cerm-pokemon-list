@@ -1,12 +1,16 @@
 import { Routes } from '@angular/router';
-import { PokemonMainComponent } from './pokemon/pokemon-main/pokemon-main.component';
 import { PokemonCenterComponent } from './pokemon-center/pokemon-center.component';
-import { PokemonDetailComponent } from './pokemon/pokemon-detail/pokemon-detail.component';
-import { pokemonResolver } from './resolvers/pokemon.resolver';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'pokemon', pathMatch: 'full' },
-  { path: 'pokemon', component: PokemonMainComponent },
-  { path: 'pokemon/:id', component: PokemonDetailComponent, resolve: { pokemon: pokemonResolver } },
-  { path: 'pokemon-center', component: PokemonCenterComponent }
+  { path: 'pokemon', loadChildren: () => import('./pokemon/pokemon.module').then(m => m.PokemonModule) },
+  {
+    path: 'pokemon-center', component: PokemonCenterComponent, children: [
+      { path: '', redirectTo: 'pokeballs', pathMatch: 'full' },
+      { path: 'pokeballs', loadComponent: () => import('./pokeballs/pokeballs.component').then(c => c.PokeballsComponent) },
+      { path: 'potions', loadComponent: () => import('./potions/potions.component').then(c => c.PotionsComponent) }
+    ]
+  },
+  { outlet: 'extra', path: 'shopping-cart', component: ShoppingCartComponent }
 ];

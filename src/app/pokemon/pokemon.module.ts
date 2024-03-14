@@ -6,11 +6,12 @@ import { PokemonFormComponent } from './pokemon-form/pokemon-form.component';
 import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.component';
 import { PokemonTypePipe } from './pipes/pokemon-type.pipe';
 import { LoadingComponent } from '../loading/loading.component';
-import { RouterModule } from '@angular/router';
+import { RouterModule, provideRouter } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PokemonService } from '../services/pokemon.service';
 import { HoverDirective } from '../directives/hover.directive';
 import { OrDirective } from '../directives/or.directive';
+import { pokemonRoutes } from './pokemon.routes';
 
 
 
@@ -19,6 +20,6 @@ import { OrDirective } from '../directives/or.directive';
   imports: [
     CommonModule, LoadingComponent, AsyncPipe, RouterModule, ReactiveFormsModule, HoverDirective, OrDirective
   ],
-  providers: [PokemonService]
+  providers: [PokemonService, provideRouter(pokemonRoutes)]
 })
 export class PokemonModule { }
