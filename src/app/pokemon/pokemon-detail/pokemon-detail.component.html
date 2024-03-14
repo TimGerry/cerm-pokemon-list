@@ -3,6 +3,7 @@
   <p>Type: {{ pokemon.type }} {{ pokemon.type2 }}</p>
   <p>Attack: {{ pokemon.attack }}</p>
   <p>Level: {{ pokemon.level }}</p>
+  <button (click)="train()">Start training!</button>
   <img [src]="getPokemonImage(pokemon.name)" [alt]="pokemon.name">
 } 
 

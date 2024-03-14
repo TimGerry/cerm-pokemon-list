@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Pokemon } from '../pokemon/models/pokemon.model';
 import { HttpClient } from '@angular/common/http';
-import { Observable, map } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, map, tap } from 'rxjs';
 
 const BASE_URL = 'http://localhost:3000/pokemon/';
 
@@ -9,19 +9,35 @@ const BASE_URL = 'http://localhost:3000/pokemon/';
   providedIn: 'root'
 })
 export class PokemonService {
-  constructor(private http: HttpClient) { }
+  private pokemonSubject: BehaviorSubject<Pokemon[]>;
+  public pokemon$: Observable<Pokemon[]>
 
-  getAll(): Observable<Pokemon[]> {
-    return this.http.get<Pokemon[]>(BASE_URL).pipe(
-      map(data => data.map(p => ({ ...p, type: p.type.toLowerCase(), type2: p.type2?.toLowerCase() })))
-    );
+  constructor(private http: HttpClient) {
+    this.pokemonSubject = new BehaviorSubject<Pokemon[]>([]);
+    this.next();
+    this.pokemon$ = this.pokemonSubject.asObservable();
   }
 
   get(id: string): Observable<Pokemon> {
     return this.http.get<Pokemon>(`${BASE_URL}${id}`);
   }
 
-  add(pokemon: Omit<Pokemon, 'id'>): Observable<void> {
-    return this.http.post<void>(BASE_URL, {...pokemon, id: pokemon.name});
+  train({ id, ...pokemonData }: Pokemon): Observable<Pokemon> {
+    return this.http.put<Pokemon>(`${BASE_URL}${id}`, { ...pokemonData, level: pokemonData.level + 1 })
+      .pipe(tap(_ => this.next()));
+  }
+
+  add(pokemon: Omit<Pokemon, 'id'>) {
+    this.http.post<void>(BASE_URL, { ...pokemon, id: pokemon.name }).subscribe(() => this.next());
+  }
+
+  next = () => {
+    this.getAll().subscribe(data => this.pokemonSubject.next(data));
+  }
+
+  private getAll(): Observable<Pokemon[]> {
+    return this.http.get<Pokemon[]>(BASE_URL).pipe(
+      map(data => data.map(p => ({ ...p, type: p.type.toLowerCase(), type2: p.type2?.toLowerCase() })))
+    );
   }
 }
