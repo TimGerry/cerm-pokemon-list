@@ -2,8 +2,9 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PokemonListComponent } from './pokemon-list.component';
 import { PokemonService } from '../../services/pokemon.service';
+import { of } from 'rxjs';
 
-fdescribe('PokemonListComponent', () => {
+describe('PokemonListComponent', () => {
   let component: PokemonListComponent;
   let fixture: ComponentFixture<PokemonListComponent>;
   let el: HTMLElement;
@@ -31,7 +32,7 @@ fdescribe('PokemonListComponent', () => {
       { name: 'pokemon 3', type: 'fire', attack: 'attack', level: 1, id: ''},
       { name: 'pokemon 4', type: 'fire', attack: 'attack', level: 1, id: ''},
     ];
-    component.pokemonList = expectedPokemon;
+    component.pokemon$ = of(expectedPokemon);
 
     fixture.detectChanges();
     await fixture.whenStable();

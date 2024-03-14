@@ -16,7 +16,8 @@ export class PokemonFormComponent {
 
   constructor(private nnfb: NonNullableFormBuilder) {
     this.pokemonForm = nnfb.group<PokemonForm>({
-      name: nnfb.control('mudkip', [Validators.required, Validators.minLength(2)], [this.pokemonValidator()]),
+      // name: nnfb.control('mudkip', [Validators.required, Validators.minLength(2)], [this.pokemonValidator()]),
+      name: nnfb.control('mudkip', [Validators.required, Validators.minLength(2)]),
       type: nnfb.control('', [Validators.required, this.pokemonTypeValidator()]),
       type2: nnfb.control('', this.pokemonTypeValidator()),
       attack: nnfb.control('', Validators.required),

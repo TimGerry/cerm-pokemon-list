@@ -10,12 +10,16 @@ const BASE_URL = 'http://localhost:3000/pokemon/';
 })
 export class PokemonService {
   private pokemonSubject: BehaviorSubject<Pokemon[]>;
-  public pokemon$: Observable<Pokemon[]>
+  private pokemon$: Observable<Pokemon[]>
 
   constructor(private http: HttpClient) {
     this.pokemonSubject = new BehaviorSubject<Pokemon[]>([]);
     this.next();
     this.pokemon$ = this.pokemonSubject.asObservable();
+  }
+
+  getPokemon$() {
+    return this.pokemon$;
   }
 
   get(id: string): Observable<Pokemon> {

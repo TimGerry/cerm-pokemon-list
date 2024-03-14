@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Pokemon } from '../models/pokemon.model';
 import { PokemonService } from '../../services/pokemon.service';
 import { Observable } from 'rxjs';
@@ -12,7 +12,7 @@ export class PokemonMainComponent {
   pokemon$: Observable<Pokemon[]> | undefined;
 
   constructor(private service: PokemonService) { 
-    this.pokemon$ = service.pokemon$;
+    this.pokemon$ = service.getPokemon$();
   }
 
   submit(pokemonToAdd: Omit<Pokemon, 'id'>) {
